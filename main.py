@@ -3,7 +3,8 @@ car = NvidiaRacecar()
 import numpy as np
 import RPi.GPIO as GPIO
 import time
-
+from dis_full_maki import readSonic
+from dis_full_maki import readTemp
 
 # parameter setting
 # 長さの単位はcm
@@ -42,11 +43,13 @@ rightRearDistance = np.empty(1)
 startTime = time.time()
 
 
+temp = readTemp()
+
 # Driving program
 try:
     while isLoop:
-        rightFrontDistance([0]) = getDistance() # Right front
-        rightRearDistance([0]) = getDistance() # Right rear
+        rightFrontDistance([0]) = readSonic(1, temp) # Right front
+        rightRearDistance([0]) = readSonic(2, temp) # Right rear
 
         # Figure out status
         ## distance from car to the wall

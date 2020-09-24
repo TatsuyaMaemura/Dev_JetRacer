@@ -7,7 +7,7 @@ import time
 
 # parameter setting
 # 長さの単位はcm
-isRoop = True
+isLoop = True
 
 centerLine = 30
 thresWidth = 15
@@ -44,7 +44,7 @@ startTime = time.time()
 
 # Driving program
 try:
-    while isRoop:
+    while isLoop:
         rightFrontDistance([0]) = getDistance() # Right front
         rightRearDistance([0]) = getDistance() # Right rear
 
